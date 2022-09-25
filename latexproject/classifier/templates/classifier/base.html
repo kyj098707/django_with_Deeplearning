@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	{% if title %}
+		<title>Django Recognizer-{{ title }}</title>
+	{% else %}
+		<title>Django Recognizer</title>
+	{% endif %}
+</head>
+<body>
+    
+	
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          
+          {% block content %}{% endblock %}
+
+
+          {% if post %}
+            <img width="400px" height="250px" src="{% get_media_prefix %}{{ img1src }}"><br><br>
+            <h1>This is {{ Class }}</h1>
+
+          {% else %}
+              <div class="mt-auto">
+                <div class="card">
+                  <div class="card-body">
+                    <form name="" method="post" action="" enctype="multipart/form-data">
+                      {% csrf_token %}
+                        <strong> 분류할 이미지를 선택하세요 </strong>
+                      <hr>
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                          </div>
+                          <div class="custom-file">
+                            <input type="file" required="required" accept=".png,.jpg" class="custom-file-input" id="image1" name="file1" aria-describedby="inputGroupFileAddon01">
+                          </div>
+                        </div>
+                      <div class="text-center">
+                        <button class="btn btn-dark btn-lg">Upload</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div> 
+          {% endif %}  
+
+        </div>
+      </div>
+    </main>
+
+
+</body>
+</html>

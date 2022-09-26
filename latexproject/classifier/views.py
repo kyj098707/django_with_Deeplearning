@@ -1,6 +1,4 @@
 from django.shortcuts import render
-import torch
-import torch.nn as nn
 from .clf import load_clf_model, do_predict
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
